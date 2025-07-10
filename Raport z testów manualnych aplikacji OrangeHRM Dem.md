@@ -118,5 +118,3 @@ Poniżej znajduje się szczegółowy opis przeprowadzonych testów, wykryte bł�
 ## Podsumowanie
 
 Testy wykazały, że aplikacja jest intuicyjna i większość podstawowych funkcji działa poprawnie. Wskazane błędy dotyczą głównie braku automatycznego odświeżania danych oraz niejednoznacznych komunikatów po operacjach. Propozycje usprawnień dotyczą zarówno warstwy funkcjonalnej, jak i UI/UX, co może pozytywnie wpłynąć na komfort użytkowania aplikacji.
-
-**Ten raport zawiera kompletne, jednoznaczne kroki testowe – odtworzenie ich nie powinno budzić żadnych wątpliwości.**
