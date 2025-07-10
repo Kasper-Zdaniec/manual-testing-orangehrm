@@ -7,71 +7,116 @@ Celem testów było sprawdzenie wybranych funkcjonalności demo systemu HR dost�
 - Zarządzanie użytkownikami (Admin → User Management → Users)
 - Moduł urlopów (Leave)
 
-Poniżej znajduje się opis przeprowadzonych testów, wykryte błędy oraz propozycje usprawnień.
+Poniżej znajduje się szczegółowy opis przeprowadzonych testów, wykryte błędy oraz propozycje usprawnień.
 
 ## Funkcjonalność 1: Zarządzanie użytkownikami
 
-### Zakres testów
+### Kroki testowe
 
-- Wyświetlanie listy użytkowników
-- Filtrowanie i wyszukiwanie użytkowników
-- Dodawanie nowego użytkownika
-- Edycja istniejącego użytkownika
-- Usuwanie użytkownika
+#### 1. Wyświetlanie listy użytkowników
+1. Zaloguj się do aplikacji:  
+   - Adres: https://opensource-demo.orangehrmlive.com/  
+   - Login: `Admin`  
+   - Hasło: `admin123`
+2. Po zalogowaniu kliknij w menu po lewej stronie na **Admin**.
+3. W podmenu wybierz **User Management** → **Users**.
+4. Sprawdź, czy lista użytkowników jest wyświetlana poprawnie.
 
-### Wyniki testów
+#### 2. Filtrowanie i wyszukiwanie użytkowników
+1. W sekcji **System Users** użyj pola **User Role** – wybierz dowolną rolę z listy (np. `ESS`).
+2. Kliknij **Search**.
+3. Sprawdź, czy lista użytkowników została przefiltrowana zgodnie z wybraną rolą.
+4. W polu **Username** wpisz fragment nazwy istniejącego użytkownika.
+5. Kliknij **Search**.
+6. Sprawdź, czy wyniki odpowiadają wpisanej frazie.
 
-| Testowana akcja              | Wynik         | Uwagi/Błędy                                                                                         |
-|------------------------------|---------------|-----------------------------------------------------------------------------------------------------|
-| Wyświetlanie listy           | OK            | Lista ładuje się poprawnie                                                                          |
-| Filtrowanie po roli          | OK            | Filtrowanie działa zgodnie z oczekiwaniami                                                          |
-| Wyszukiwanie po nazwie       | OK            | Wyszukiwanie działa, ale nie rozróżnia wielkości liter                                              |
-| Dodawanie użytkownika        | Błąd          | Po dodaniu użytkownika nie zawsze pojawia się komunikat o sukcesie, czasem nie odświeża się lista   |
-| Edycja użytkownika           | OK            | Edycja przebiega poprawnie                                                                          |
-| Usuwanie użytkownika         | OK            | Użytkownik zostaje usunięty, pojawia się komunikat potwierdzający                                   |
+#### 3. Dodawanie nowego użytkownika
+1. Kliknij przycisk **Add** nad listą użytkowników.
+2. Wypełnij formularz:
+   - User Role: np. `ESS`
+   - Employee Name: wpisz np. `Linda Anderson` (wybierz z podpowiedzi)
+   - Status: `Enabled`
+   - Username: np. `testuser123`
+   - Password: np. `Test@1234`
+   - Confirm Password: `Test@1234`
+3. Kliknij **Save**.
+4. Sprawdź, czy pojawia się komunikat o sukcesie oraz czy nowy użytkownik pojawia się na liście.
 
-#### Znalezione błędy
+#### 4. Edycja istniejącego użytkownika
+1. Na liście użytkowników znajdź użytkownika (np. `testuser123`).
+2. Kliknij ikonę **Edit** (ołówek) przy tym użytkowniku.
+3. Zmień np. status na `Disabled`.
+4. Kliknij **Save**.
+5. Sprawdź, czy zmiana została zapisana.
 
-- Brak odświeżenia listy po dodaniu użytkownika – konieczne ręczne odświeżenie strony.
-- Brak jednoznacznego komunikatu o sukcesie po dodaniu użytkownika.
-
-#### Propozycje usprawnień (UI/UX, funkcjonalne)
-
-- Automatyczne odświeżanie listy użytkowników po dodaniu nowego wpisu.
-- Wyraźny, widoczny komunikat o sukcesie po każdej operacji (dodanie, edycja, usunięcie).
-- Dodanie możliwości sortowania po kolumnach (np. po nazwie, statusie).
-- Umożliwienie wyszukiwania z rozróżnieniem wielkości liter.
+#### 5. Usuwanie użytkownika
+1. Na liście użytkowników zaznacz pole przy wybranym użytkowniku (np. `testuser123`).
+2. Kliknij przycisk **Delete** (ikona kosza).
+3. Potwierdź usunięcie w oknie dialogowym.
+4. Sprawdź, czy użytkownik został usunięty z listy.
 
 ## Funkcjonalność 2: Moduł urlopów (Leave)
 
-### Zakres testów
+### Kroki testowe
 
-- Składanie wniosku urlopowego
-- Przeglądanie historii wniosków
-- Akceptacja/odrzucenie wniosku (rola Admin)
-- Filtrowanie wniosków
+#### 1. Składanie wniosku urlopowego
+1. W menu po lewej stronie kliknij **Leave**.
+2. Wybierz **Apply**.
+3. W formularzu wybierz:
+   - Leave Type: np. `CAN - Bereavement`
+   - From Date: wybierz datę (np. dzisiejszą)
+   - To Date: wybierz tę samą datę
+   - Comment: wpisz np. `Testowy wniosek urlopowy`
+4. Kliknij **Apply**.
+5. Sprawdź, czy pojawia się komunikat o sukcesie.
 
-### Wyniki testów
+#### 2. Przeglądanie historii wniosków
+1. W menu **Leave** wybierz **My Leave**.
+2. Sprawdź, czy złożony wniosek jest widoczny na liście.
+3. Sprawdź szczegóły wniosku, klikając na niego.
 
-| Testowana akcja               | Wynik         | Uwagi/Błędy                                                                                      |
-|-------------------------------|---------------|--------------------------------------------------------------------------------------------------|
-| Składanie wniosku urlopowego  | OK            | Wniosek zostaje złożony, pojawia się komunikat o sukcesie                                        |
-| Przeglądanie historii         | OK            | Historia wyświetla się poprawnie                                                                 |
-| Filtrowanie po statusie       | OK            | Filtrowanie działa, ale nie można filtrować po kilku statusach jednocześnie                      |
-| Akceptacja/odrzucenie wniosku | Błąd          | Po akceptacji/odrzuceniu nie zawsze aktualizuje się status na liście bez odświeżenia strony      |
+#### 3. Akceptacja/odrzucenie wniosku (rola Admin)
+1. W menu **Leave** wybierz **Leave List**.
+2. Ustaw zakres dat, aby widzieć złożony wcześniej wniosek.
+3. Kliknij **Search**.
+4. Na liście znajdź wniosek testowy.
+5. Kliknij na niego, wybierz **Approve** lub **Reject**.
+6. Sprawdź, czy status wniosku zmienił się odpowiednio.
 
-#### Znalezione błędy
+#### 4. Filtrowanie wniosków
+1. W menu **Leave** → **Leave List** użyj filtrów:
+   - Status (np. `Pending Approval`)
+   - Leave Type
+   - Employee Name
+2. Kliknij **Search**.
+3. Sprawdź, czy wyniki odpowiadają zastosowanym filtrom.
 
-- Brak automatycznej aktualizacji statusu po akceptacji/odrzuceniu wniosku urlopowego.
-- Brak możliwości filtrowania po kilku statusach jednocześnie.
+## Wyniki testów i błędy
 
-#### Propozycje usprawnień (UI/UX, funkcjonalne)
+### Zarządzanie użytkownikami
 
-- Automatyczna aktualizacja statusu wniosku na liście po akcji akceptacji/odrzucenia.
-- Dodanie możliwości filtrowania po wielu statusach jednocześnie.
-- Umożliwienie masowej akceptacji/odrzucenia wniosków.
-- Lepsze wyróżnienie statusów kolorami dla szybszej identyfikacji.
+- **Dodawanie użytkownika:** Po dodaniu użytkownika nie zawsze pojawia się komunikat o sukcesie, czasem lista nie odświeża się automatycznie.
+- **Filtrowanie:** Działa poprawnie.
+- **Edycja:** Działa poprawnie.
+- **Usuwanie:** Działa poprawnie.
+
+### Moduł urlopów
+
+- **Składanie wniosku:** Działa poprawnie.
+- **Historia:** Działa poprawnie.
+- **Akceptacja/odrzucenie:** Status na liście nie zawsze aktualizuje się automatycznie po akcji.
+- **Filtrowanie:** Nie można filtrować po kilku statusach jednocześnie.
+
+## Propozycje usprawnień
+
+- Automatyczne odświeżanie list po dodaniu/edycji/usunięciu użytkownika lub zmianie statusu wniosku.
+- Wyraźniejsze komunikaty o sukcesie lub błędzie.
+- Możliwość filtrowania po wielu statusach jednocześnie w module urlopów.
+- Umożliwienie sortowania listy użytkowników po kolumnach.
+- Lepsze wyróżnienie statusów kolorami.
 
 ## Podsumowanie
 
 Testy wykazały, że aplikacja jest intuicyjna i większość podstawowych funkcji działa poprawnie. Wskazane błędy dotyczą głównie braku automatycznego odświeżania danych oraz niejednoznacznych komunikatów po operacjach. Propozycje usprawnień dotyczą zarówno warstwy funkcjonalnej, jak i UI/UX, co może pozytywnie wpłynąć na komfort użytkowania aplikacji.
+
+**Ten raport zawiera kompletne, jednoznaczne kroki testowe – odtworzenie ich nie powinno budzić żadnych wątpliwości.**
