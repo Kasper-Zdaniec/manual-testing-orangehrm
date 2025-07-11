@@ -3,7 +3,7 @@
 
 ## 1. Wprowadzenie
 
-Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjonalności aplikacji OrangeHRM Demo (https://opensource-demo.orangehrmlive.com/), przeprowadzonych w środowisku testowym po zalogowaniu na konto **Admin**. Dokument został opracowany zgodnie z zaleceniami ISTQB, z zachowaniem właściwej terminologii, struktury oraz kompletności informacji testerskich.
+Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjonalności aplikacji OrangeHRM Demo (https://opensource-demo.orangehrmlive.com/), przeprowadzonych w środowisku testowym na koncie **Admin**. Dokument został opracowany zgodnie z zaleceniami ISTQB, z zachowaniem właściwej terminologii, struktury oraz kompletności informacji testerskich.
 
 ## 2. Zakres testów (Test Scope)
 
@@ -37,15 +37,15 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 ## 6. Przypadki testowe (Test Cases) i pokrycie wymagań
 
-| ID TC      | Warunek testowy                  | Kroki testowe                                                                                                   | Dane testowe                                      | Oczekiwany rezultat                | Status  | Komentarz                                                                                      |
-|------------|----------------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------|---------|------------------------------------------------------------------------------------------------|
-| TC-PIM-01  | Dodanie nowego pracownika        | 1. PIM → Add Employee 2. Wprowadź dane 3. Zapisz                          | Imię: Jan, Nazwisko: Testowy, ID: 12345, Zdjęcie: testowy.png           | Pracownik widoczny na liście       | Sukces  |                                                                                                 |
-| TC-PIM-02  | Wyszukiwanie pracownika          | 1. Employee List 2. Wyszukaj po imieniu/nazwisku                          | Imię: Jan, Nazwisko: Testowy                                             | Pracownik wyświetlony na liście    | Sukces  |                                                                                                 |
-| TC-PIM-03  | Edycja danych pracownika         | 1. Wybierz pracownika 2. Edytuj dane 3. Zapisz                            | Zmiana nazwiska na: Testerski                                            | Dane zaktualizowane                | Sukces  |                                                                                                 |
-| TC-PIM-04  | Usunięcie pracownika             | 1. Przejdź do PIM → Employee List 2. Wyszukaj pracownika (np. Jan Testerski) 3. Zaznacz pracownika na liście 4. Kliknij „Delete” 5. Potwierdź operację w oknie dialogowym | Pracownik: Jan Testerski                         | Pracownik usunięty z listy         | Sukces  |                                                                                                 |
-| TC-ORG-01  | Dodanie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Dodaj nową jednostkę 4. Wprowadź nazwę 5. Zapisz      | Nazwa: Testowa Jednostka                           | Jednostka widoczna w strukturze    | Sukces  | Dodanie możliwe po wcześniejszym kliknięciu „Edit”                                              |
-| TC-ORG-02  | Edycja jednostki organizacyjnej  | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Edytuj nazwę 5. Zapisz           | Nowa nazwa: Zmieniona Jednostka                    | Zaktualizowana nazwa w strukturze  | Sukces  | Edycja możliwa po wcześniejszym kliknięciu „Edit”                                               |
-| TC-ORG-03  | Usunięcie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Usuń 5. Potwierdź operację       | Jednostka: Zmieniona Jednostka                     | Jednostka usunięta ze struktury    | Sukces  | Usunięcie możliwe po wcześniejszym kliknięciu „Edit”                                            |
+| ID TC      | Warunek testowy                  | Kroki testowe                                                                                                   | Dane testowe                                      | Oczekiwany rezultat                | Status    | Komentarz                                                                                      |
+|------------|----------------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------|-----------|------------------------------------------------------------------------------------------------|
+| TC-PIM-01  | Dodanie nowego pracownika        | 1. PIM → Add Employee 2. Wprowadź dane 3. Zapisz                          | Imię: Jan, Nazwisko: Testowy, ID: 12345, Zdjęcie: testowy.png           | Pracownik widoczny na liście       | Sukces    |                                                                                                 |
+| TC-PIM-02  | Wyszukiwanie pracownika          | 1. Employee List 2. Wyszukaj po imieniu/nazwisku                          | Imię: Jan, Nazwisko: Testowy                                             | Pracownik wyświetlony na liście    | Sukces    |                                                                                                 |
+| TC-PIM-03  | Edycja danych pracownika         | 1. Wybierz pracownika 2. Edytuj dane 3. Zapisz                            | Zmiana nazwiska na: Testerski                                            | Dane zaktualizowane                | Sukces    |                                                                                                 |
+| TC-PIM-04  | Usunięcie pracownika             | 1. Przejdź do PIM → Employee List 2. Wyszukaj pracownika (np. Jan Testerski) 3. Zaznacz pracownika na liście 4. Kliknij „Delete” 5. Potwierdź operację w oknie dialogowym | Pracownik: Jan Testerski                         | Pracownik usunięty z listy         | Sukces    |                                                                                                 |
+| TC-ORG-01  | Dodanie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Dodaj nową jednostkę 4. Wprowadź nazwę 5. Zapisz      | Nazwa: Testowa Jednostka                          | Jednostka widoczna w strukturze    | Sukces    | Dodanie możliwe po wcześniejszym kliknięciu „Edit”                                              |
+| TC-ORG-02  | Edycja jednostki organizacyjnej  | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Edytuj nazwę 5. Zapisz           | Zmiana nazwy: z „Testowa Jednostka” na „Zmieniona Jednostka” | Zaktualizowana nazwa w strukturze  | Nieudany  | Komunikat „Error: Invalid Parameter” po próbie zapisania – zmiana nie jest możliwa.             |
+| TC-ORG-03  | Usunięcie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Usuń 5. Potwierdź operację       | Jednostka: Zmieniona Jednostka                     | Jednostka usunięta ze struktury    | Pominięty | Nie można przetestować z powodu nieudanego TC-ORG-02.                                           |
 
 ## 7. Dane testowe (Test Data)
 
@@ -61,12 +61,12 @@ Nowa nazwa: Zmieniona Jednostka
 
 ## 8. Log testowy (Test Log)
 
-| Data        | Tester           | Moduł         | Wersja przeglądarki | TC                | Wynik      | Komentarz                                                                 |
-|-------------|------------------|--------------|---------------------|-------------------|------------|---------------------------------------------------------------------------|
-| 2025-07-10  | Kasper Żdaniec   | PIM          | Chrome 125, FF 127  | Wszystkie         | OK         | Wszystkie przypadki PIM zakończone sukcesem                               |
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-01         | OK         | Dodanie jednostki organizacyjnej po kliknięciu „Edit” przebiegło prawidłowo|
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-02         | OK         | Edycja nazwy jednostki po kliknięciu „Edit” przebiegła prawidłowo         |
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-03         | OK         | Usunięcie jednostki po kliknięciu „Edit” przebiegło prawidłowo            |
+| Data        | Tester           | Moduł         | TC         | Wynik      | Komentarz                                                                 |
+|-------------|------------------|--------------|------------|-----------|---------------------------------------------------------------------------|
+| 2025-07-10  | Kasper Żdaniec   | PIM          | Wszystkie  | OK        | Wszystkie przypadki PIM zakończone sukcesem                               |
+| 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-01  | OK        | Dodanie jednostki organizacyjnej po kliknięciu „Edit” przebiegło prawidłowo|
+| 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-02  | Fail      | Komunikat „Error: Invalid Parameter” po próbie zmiany nazwy jednostki      |
+| 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-03  | Pominięty | Nie można przetestować z powodu nieudanego TC-ORG-02                       |
 
 ## 9. Wyniki testów, defekty i usprawnienia (Defects & Improvements)
 
@@ -78,7 +78,7 @@ Nowa nazwa: Zmieniona Jednostka
 | DEF-02     | Brak walidacji formatu zdjęcia                | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-02     |
 | IMP-01     | Brak komunikatu po edycji danych pracownika   | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-01     |
 | IMP-02     | Brak możliwości masowego usuwania pracowników | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
-| DEF-03     | Brak walidacji przy edycji jednostki organizacyjnej | Organization | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-03     |
+| DEF-03     | Błąd „Error: Invalid Parameter” przy edycji jednostki organizacyjnej | Organization | Wysoki    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-03     |
 | IMP-03     | Brak możliwości dodania opisu jednostki       | Organization | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
 | IMP-04     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-04     |
 | IMP-05     | Brak responsywności UI dla urządzeń mobilnych | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-05     |
@@ -91,12 +91,13 @@ Nowa nazwa: Zmieniona Jednostka
 ## 11. Ograniczenia i ryzyka (Test Constraints & Risks)
 
 - Testy przeprowadzono wyłącznie na koncie Administratora – brak możliwości weryfikacji procesów dostępnych dla innych ról użytkowników (np. pracownika).
+- Błąd uniemożliwiający edycję jednostki organizacyjnej blokuje dalsze testowanie tego obszaru.
 - Brak walidacji i komunikatów może skutkować błędami użytkowników.
 - Ograniczony zakres testów – nie testowano uprawnień innych ról, integracji, raportowania.
 
 ## 12. Wnioski
 
-Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami oraz strukturą organizacyjną, a wykryte defekty nie są krytyczne dla podstawowej pracy tych modułów.  
+Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami, jednak w module zarządzania strukturą organizacyjną występuje błąd uniemożliwiający edycję nazwy jednostki organizacyjnej (komunikat „Error: Invalid Parameter”).  
 Wdrożenie zaproponowanych usprawnień istotnie podniesie jakość produktu i satysfakcję użytkowników.  
 Raport został przygotowany zgodnie z terminologią i strukturą ISTQB, z zachowaniem traceability, logu testowego, opisu środowiska, danych testowych oraz formalnego raportowania defektów.
 
