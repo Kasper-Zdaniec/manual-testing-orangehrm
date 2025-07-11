@@ -1,89 +1,99 @@
 # Raport z testów manualnych aplikacji OrangeHRM Demo
 
-## 1. Wstęp
+## Wprowadzenie
 
-Testy zostały przeprowadzone na demo aplikacji HR dostępnej pod adresem: https://opensource-demo.orangehrmlive.com/. Użyto konta testowego:  
-Login: **Admin**  
-Hasło: **admin123**
+Celem testów było sprawdzenie wybranych funkcjonalności aplikacji OrangeHRM Demo dostępnej pod adresem https://opensource-demo.orangehrmlive.com/. Testy zostały przeprowadzone po zalogowaniu się na konto Admin (login: Admin, hasło: admin123).
 
-Wybrane funkcjonalności do testów:
+Wybrałem następujące dwie funkcjonalności do testów:
 - Zarządzanie pracownikami (PIM – Personal Information Management)
-- Urlopy (Leave)
+- Zarządzanie urlopami (Leave)
 
-## 2. Przebieg testów
+## 1. Funkcjonalność: Zarządzanie pracownikami (PIM)
 
-### 2.1. Funkcjonalność: Zarządzanie pracownikami (PIM)
+### Zakres testów
 
-**Zakres testów:**
 - Dodawanie nowego pracownika
 - Wyszukiwanie pracownika
 - Edycja danych pracownika
+- Usuwanie pracownika
 
-**Kroki testowe:**
-1. Przejście do modułu PIM.
-2. Wybranie opcji „Add Employee”.
-3. Wprowadzenie danych (imię, nazwisko, zdjęcie).
-4. Zapisanie nowego pracownika.
-5. Wyszukanie utworzonego pracownika po imieniu/nazwisku.
-6. Edycja danych pracownika.
-7. Zapisanie zmian.
+### Przebieg testów
 
-**Wyniki:**
-- Dodanie i wyszukiwanie pracownika przebiegło pomyślnie.
-- Edycja danych działa poprawnie, zmiany są widoczne po zapisaniu.
+1. **Dodawanie pracownika**
+   - Przejście do sekcji PIM → Add Employee
+   - Wprowadzenie danych: imię, nazwisko, upload zdjęcia
+   - Zapisanie pracownika
 
-**Znalezione błędy:**
-- Brak walidacji formatu zdjęcia – możliwe jest przesłanie pliku o niepoprawnym formacie.
-- Po zapisaniu nowego pracownika nie pojawia się jednoznaczne potwierdzenie sukcesu (brak komunikatu).
+2. **Wyszukiwanie pracownika**
+   - Wyszukiwanie po imieniu/nazwisku w sekcji Employee List
 
-**Propozycje usprawnień:**
-- Dodanie komunikatu potwierdzającego dodanie/edycję pracownika.
-- Ulepszenie walidacji pól formularza (np. ograniczenie długości pól, walidacja zdjęcia).
-- Dodanie możliwości cofnięcia zmian przed zapisaniem.
+3. **Edycja danych**
+   - Edycja danych istniejącego pracownika (np. zmiana nazwiska)
 
-### 2.2. Funkcjonalność: Urlopy (Leave)
+4. **Usuwanie pracownika**
+   - Usunięcie pracownika z listy
 
-**Zakres testów:**
+### Wyniki i znalezione błędy
+
+| Testowany scenariusz       | Wynik      | Opis błędu/uwaga                                                                 |
+|----------------------------|------------|----------------------------------------------------------------------------------|
+| Dodawanie pracownika       | Sukces     | Brak błędów krytycznych                                                          |
+| Wyszukiwanie pracownika    | Sukces     | Brak błędów                                                                      |
+| Edycja danych pracownika   | Sukces     | Po edycji czasem wymagane jest ponowne odświeżenie strony, by zobaczyć zmiany    |
+| Usuwanie pracownika        | Sukces     | Brak błędów                                                                      |
+
+#### Znalezione bugi
+
+- Po edycji danych pracownika, zmiany nie zawsze są widoczne od razu – wymagane jest odświeżenie strony.
+- Brak walidacji formatu zdjęcia – można dodać plik o nieprawidłowym formacie.
+
+#### Propozycje usprawnień (UI/UX, funkcjonalne)
+
+- Dodanie komunikatu potwierdzającego pomyślną edycję danych.
+- Automatyczne odświeżanie listy pracowników po edycji/usunięciu.
+- Ograniczenie typów plików możliwych do uploadu jako zdjęcie.
+
+## 2. Funkcjonalność: Zarządzanie urlopami (Leave)
+
+### Zakres testów
+
 - Składanie wniosku urlopowego
-- Przeglądanie historii urlopów
-- Akceptacja/odrzucanie wniosków
+- Przeglądanie statusu wniosku
+- Anulowanie wniosku
 
-**Kroki testowe:**
-1. Przejście do modułu „Leave”.
-2. Wybranie opcji „Apply”.
-3. Wypełnienie wniosku urlopowego (typ urlopu, daty, komentarz).
-4. Złożenie wniosku.
-5. Przejście do „My Leave” – sprawdzenie, czy wniosek się pojawił.
-6. Przejście do „Leave List” – sprawdzenie możliwości filtrowania i przeglądania wniosków.
+### Przebieg testów
 
-**Wyniki:**
-- Wniosek urlopowy został złożony i pojawił się na liście.
-- Filtrowanie działa poprawnie.
-- Statusy są czytelne.
+1. **Składanie wniosku urlopowego**
+   - Przejście do sekcji Leave → Apply
+   - Wypełnienie formularza (typ urlopu, daty)
+   - Złożenie wniosku
 
-**Znalezione błędy:**
-- Brak walidacji dat – możliwe jest złożenie wniosku na daty wsteczne.
-- Po złożeniu wniosku nie pojawia się natychmiastowy komunikat potwierdzający.
+2. **Przeglądanie statusu**
+   - Leave → My Leave
+   - Sprawdzenie statusu złożonego wniosku
 
-**Propozycje usprawnień:**
-- Dodanie walidacji dat (blokada wyboru dat przeszłych).
-- Dodanie powiadomienia o sukcesie po złożeniu wniosku.
-- Umożliwienie edycji lub anulowania wniosku przed rozpatrzeniem.
+3. **Anulowanie wniosku**
+   - Próba anulowania złożonego wniosku
 
-## 3. Podsumowanie
+### Wyniki i znalezione błędy
 
-Aplikacja OrangeHRM Demo oferuje szeroki zakres funkcjonalności HR. Podczas testów wybrane moduły działały stabilnie, jednak zauważono kilka błędów i obszarów do usprawnienia, szczególnie w zakresie walidacji formularzy oraz komunikacji z użytkownikiem (brak jasnych komunikatów potwierdzających operacje).
+| Testowany scenariusz         | Wynik      | Opis błędu/uwaga                                                               |
+|------------------------------|------------|--------------------------------------------------------------------------------|
+| Składanie wniosku urlopowego | Sukces     | Brak błędów krytycznych                                                        |
+| Przeglądanie statusu         | Sukces     | Brak błędów                                                                    |
+| Anulowanie wniosku           | Brak opcji | Brak widocznej opcji anulowania wniosku po złożeniu                            |
 
-## 4. Tabela błędów i usprawnień
+#### Znalezione bugi
 
-| Funkcjonalność | Błąd/Usprawnienie                | Opis                                                                 |
-|----------------|----------------------------------|----------------------------------------------------------------------|
-| PIM            | Brak walidacji zdjęcia           | Możliwość przesłania pliku o nieprawidłowym formacie                 |
-| PIM            | Brak komunikatu sukcesu          | Po dodaniu/edycji brak potwierdzenia dla użytkownika                 |
-| Leave          | Brak walidacji dat               | Możliwość złożenia wniosku na daty wsteczne                          |
-| Leave          | Brak komunikatu po złożeniu      | Po złożeniu wniosku brak potwierdzenia na ekranie                    |
-| Leave          | Brak możliwości edycji wniosku   | Użytkownik nie może edytować/anulować wniosku przed rozpatrzeniem    |
+- Brak możliwości anulowania złożonego wniosku urlopowego przez użytkownika.
+- Po złożeniu wniosku nie pojawia się czytelny komunikat potwierdzający operację.
 
-## 5. Wnioski
+#### Propozycje usprawnień (UI/UX, funkcjonalne)
 
-Rekomenduję wdrożenie powyższych usprawnień, co poprawi użyteczność, bezpieczeństwo oraz komfort pracy użytkowników systemu.
+- Dodanie funkcji anulowania złożonego wniosku urlopowego.
+- Wyświetlanie komunikatu potwierdzającego złożenie wniosku.
+- Umożliwienie filtrowania wniosków po statusie, typie urlopu, dacie.
+
+## Podsumowanie
+
+Testowane funkcjonalności działają poprawnie w podstawowym zakresie, jednak zauważono kilka drobnych błędów oraz możliwości usprawnień, szczególnie w zakresie przejrzystości komunikatów oraz obsługi typowych scenariuszy użytkownika (odświeżanie danych, anulowanie wniosków). Wprowadzenie zaproponowanych poprawek może pozytywnie wpłynąć na odbiór aplikacji przez użytkowników końcowych.
