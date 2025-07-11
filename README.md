@@ -60,6 +60,7 @@ Integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników.
 | TC-UI-01   | Ocena czytelności rozmieszczenia przycisków          | 1. Zaloguj się jako Admin 2. Przeglądaj różne moduły 3. Zwróć uwagę na rozmieszczenie przycisków akcji 4. Udokumentuj obserwacje nagraniem ekranu | —                                | Przejrzyste i logiczne rozmieszczenie przycisków akcji | Nieudany  | Przyciski są rozmieszczone w sposób nieintuicyjny. Dotyczy m.in. PIM i Organization Structure. |
 | TC-UI-02   | Zwijanie przycisku/menu                              | 1. Otwórz aplikację 2. Kliknij przycisk/menu, który powinien się zwijać                                        | —                                | Przycisk/menu zwija się po kliknięciu lub zmianie stanu| Nieudany  | Przycisk się nie zwija.                                            |
 | TC-UI-03   | Sprawdzenie dostosowania wideo do rozmiaru ekranu    | 1. Otwórz aplikację na urządzeniu mobilnym 2. Przejdź do ekranu z wideo 3. Obserwuj, czy wideo dostosowuje się do rozmiaru ekranu | Brak specyficznych danych testowych | Wideo powinno automatycznie dostosowywać się do rozmiaru ekranu | Nieudany  | Wideo nie dostosowuje się do zmiany rozmiaru ekranu                |
+| TC-UI-04   | Sprawdzenie poprawnego wyświetlania strony           | 1. Otwórz aplikację na urządzeniu mobilnym 2. Przeglądaj różne podstrony i sekcje 3. Obserwuj, czy elementy strony nie nachodzą na siebie i są poprawnie rozmieszczone | Brak specyficznych danych testowych | Wszystkie elementy strony są poprawnie rozmieszczone i nie nachodzą na siebie | Nieudany  | Strona rozjeżdża się, elementy nachodzą na siebie            |
 
 ### 7. Dane testowe (Test Data)
 
@@ -75,7 +76,7 @@ Integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników.
 | 2025-07-10  | Kasper Żdaniec| PIM           | Wszystkie    | OK      | Wszystkie przypadki PIM zakończone sukcesem                      |
 | 2025-07-11  | Kasper Żdaniec| Organization  | Wszystkie    | OK/Fail | Dodanie i usunięcie jednostki OK, edycja zakończona błędem       |
 | 2025-07-11  | Kasper Żdaniec| Login         | TC-LOGIN-01  | Fail    | Brak możliwości podejrzenia hasła                                |
-| 2025-07-11  | Kasper Żdaniec| UI/UX         | TC-UI-01, 02, 03 | Fail    | Przyciski akcji rozmieszczone nieintuicyjnie; brak zwijania menu; wideo nie dostosowuje się do ekranu |
+| 2025-07-11  | Kasper Żdaniec| UI/UX         | TC-UI-01, 02, 03, 04 | Fail    | Przyciski akcji rozmieszczone nieintuicyjnie; brak zwijania menu; wideo nie dostosowuje się do ekranu; strona rozjeżdża się |
 
 ### 9. Wyniki testów, defekty i usprawnienia (Defects & Improvements)
 
@@ -87,6 +88,7 @@ Integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników.
 | IMP-06 | Brak możliwości podejrzenia hasła                                    | Login (Mobile)   | Niski     | 1. Otwórz ekran logowania 2. Wpisz hasło 3. Poszukaj opcji „pokaż hasło”                                   | Dostępny przycisk/ikona umożliwiająca podgląd hasła.                   | Brak takiej opcji – pole hasła zawsze zamaskowane.                         | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | IMP-06.jpg  |
 | IMP-07 | Brak zwijania się przycisku/menu                                     | UI/UX (Mobile)   | Niski     | 1. Otwórz aplikację 2. Kliknij przycisk/menu, który powinien się zwijać                                    | Przycisk/menu zwija się poprawnie.                                     | Przycisk się nie zwija.                                                    | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | IMP-07.mp4  |
 | DEF-04 | Wideo nie dostosowuje się do rozmiaru ekranu                         | UI/UX (Mobile)   | Średni    | 1. Otwórz aplikację na urządzeniu mobilnym 2. Przejdź do ekranu z wideo 3. Obserwuj, że wideo nie zmienia rozmiaru zgodnie z ekranem | Wideo powinno automatycznie dostosowywać się do rozmiaru ekranu        | Wideo pozostaje w stałym rozmiarze i nie dostosowuje się                   | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | DEF-04.mp4  |
+| DEF-05 | Strona rozjeżdża się, elementy nachodzą na siebie                    | UI/UX (Mobile)   | Wysoki    | 1. Otwórz aplikację na urządzeniu mobilnym 2. Przeglądaj różne podstrony i sekcje 3. Obserwuj, czy elementy strony nie nachodzą na siebie i są poprawnie rozmieszczone | Wszystkie elementy strony powinny być poprawnie rozmieszczone i nie nachodzić na siebie | Elementy strony nachodzą na siebie, układ jest rozjechany                  | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | DEF-05.mp4  |
 
 ### 10. Traceability (Pokrycie wymagań)
 
@@ -106,10 +108,10 @@ Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami 
 W module zarządzania strukturą organizacyjną występuje błąd uniemożliwiający edycję nazwy jednostki („Error: Invalid Parameter”), co uniemożliwia pełną weryfikację operacji CRUD.  
 Na ekranie logowania (szczególnie na urządzeniach mobilnych) brakuje opcji podglądu hasła, co może utrudniać użytkownikom poprawne wpisanie hasła.  
 Po edycji danych pracownika zmiany nie są widoczne bez ręcznego przeładowania strony, co może wprowadzać użytkownika w błąd.  
-Dodatkowo, w interfejsie użytkownika zauważono nieintuicyjne rozmieszczenie przycisków akcji, brak zwijania się przycisków/menu na urządzeniach mobilnych oraz brak responsywności wideo, co wpływa na ergonomię i nowoczesność UI.
+Dodatkowo, w interfejsie użytkownika zauważono nieintuicyjne rozmieszczenie przycisków akcji, brak zwijania się przycisków/menu na urządzeniach mobilnych, brak responsywności wideo oraz rozjeżdżanie się strony i nachodzenie elementów, co wpływa na ergonomię i nowoczesność UI.
 
 **Załączniki:**
-- Zrzuty ekranu i nagrania dokumentujące defekty i usprawnienia (np. IMP-04.mp4, IMP-06.jpg, IMP-07.mp4, DEF-04.mp4)
+- Zrzuty ekranu i nagrania dokumentujące defekty i usprawnienia (np. IMP-04.mp4, IMP-06.jpg, IMP-07.mp4, DEF-04.mp4, DEF-05.mp4)
 - Plik z przypadkami testowymi w formacie Markdown
 
 Raport przygotował: Kasper Żdaniec  
