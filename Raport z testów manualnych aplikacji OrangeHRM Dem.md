@@ -77,5 +77,3 @@ Raport został przygotowany z dbałością o szczegóły, zgodnie z najlepszymi 
 - Plik z przypadkami testowymi w formacie Markdown
 
 Jeśli pojawią się dodatkowe pytania lub potrzeba rozszerzenia zakresu testów, pozostaję do dyspozycji.
-
-[1] programming.development_tools
