@@ -113,5 +113,3 @@ Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktyw
 Raport przygotował: **Kasper Żdaniec**
 
 W razie dodatkowych pytań lub potrzeby rozszerzenia zakresu testów – pozostaję do dyspozycji.
-
-[1] https://pplx-res.cloudinary.com/image/private/user_uploads/80000843/12a49b2c-2f0a-45ff-aaa7-8091b11d9450/image.jpg
