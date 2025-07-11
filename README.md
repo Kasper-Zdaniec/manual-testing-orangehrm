@@ -46,7 +46,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 | TC-ORG-00  | Przeglądanie struktury organizacyjnej | 1. Admin → Organization → Structure 2. Sprawdź, czy wyświetlają się istniejące jednostki organizacyjne         | —                                                | Lista jednostek widoczna w strukturze | Sukces    | Struktura organizacyjna wyświetla się poprawnie po wejściu w moduł                              |
 | TC-ORG-01  | Dodanie jednostki organizacyjnej      | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Dodaj nową jednostkę 4. Wprowadź nazwę 5. Zapisz      | Nazwa: Testowa Jednostka                          | Jednostka widoczna w strukturze    | Sukces    | Dodanie możliwe po wcześniejszym kliknięciu „Edit”                                              |
 | TC-ORG-02  | Edycja jednostki organizacyjnej       | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Edytuj nazwę 5. Zapisz           | Zmiana nazwy: z „Testowa Jednostka” na „Zmieniona Jednostka” | Zaktualizowana nazwa w strukturze  | Nieudany  | Komunikat „Error: Invalid Parameter” po próbie zapisania – zmiana nie jest możliwa.             |
-| TC-ORG-03  | Usunięcie jednostki organizacyjnej    | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Usuń 5. Potwierdź operację       | Jednostka: Zmieniona Jednostka                     | Jednostka usunięta ze struktury    | Pominięty | Nie można przetestować z powodu nieudanego TC-ORG-02.                                           |
+| TC-ORG-03  | Usunięcie jednostki organizacyjnej    | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Usuń 5. Potwierdź operację       | Jednostka: Testowa Jednostka                       | Jednostka usunięta ze struktury    | Sukces    | Usunięcie możliwe bezpośrednio po utworzeniu jednostki, niezależnie od błędu edycji             |
 
 ## 7. Dane testowe (Test Data)
 
@@ -68,7 +68,7 @@ Nowa nazwa: Zmieniona Jednostka
 | 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-00  | OK        | Struktura organizacyjna wyświetla się poprawnie                           |
 | 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-01  | OK        | Dodanie jednostki organizacyjnej po kliknięciu „Edit” przebiegło prawidłowo|
 | 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-02  | Fail      | Komunikat „Error: Invalid Parameter” po próbie zmiany nazwy jednostki      |
-| 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-03  | Pominięty | Nie można przetestować z powodu nieudanego TC-ORG-02                       |
+| 2025-07-11  | Kasper Żdaniec   | Organization | TC-ORG-03  | OK        | Usunięcie jednostki organizacyjnej przebiegło prawidłowo                   |
 
 ## 9. Wyniki testów, defekty i usprawnienia (Defects & Improvements)
 
@@ -93,13 +93,13 @@ Nowa nazwa: Zmieniona Jednostka
 ## 11. Ograniczenia i ryzyka (Test Constraints & Risks)
 
 - Testy przeprowadzono wyłącznie na koncie Administratora – brak możliwości weryfikacji procesów dostępnych dla innych ról użytkowników (np. pracownika).
-- Błąd uniemożliwiający edycję jednostki organizacyjnej blokuje dalsze testowanie tego obszaru.
+- Błąd uniemożliwiający edycję jednostki organizacyjnej blokuje pełną weryfikację CRUD w tym module.
 - Brak walidacji i komunikatów może skutkować błędami użytkowników.
 - Ograniczony zakres testów – nie testowano uprawnień innych ról, integracji, raportowania.
 
 ## 12. Wnioski
 
-Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami oraz umożliwia przeglądanie i dodawanie jednostek organizacyjnych.  
+Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami oraz umożliwia przeglądanie, dodawanie i usuwanie jednostek organizacyjnych.  
 W module zarządzania strukturą organizacyjną występuje błąd uniemożliwiający edycję nazwy jednostki („Error: Invalid Parameter”), co uniemożliwia pełną weryfikację operacji CRUD.  
 Raport został przygotowany zgodnie z terminologią i strukturą ISTQB, z zachowaniem traceability, logu testowego, opisu środowiska, danych testowych oraz formalnego raportowania defektów.
 
