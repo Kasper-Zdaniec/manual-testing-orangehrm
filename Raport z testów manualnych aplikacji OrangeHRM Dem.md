@@ -17,7 +17,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 - **Przeglądarki:** Google Chrome (v125+), Mozilla Firefox (v127+)
 - **Tryb mobilny:** Chrome DevTools – tryb responsywny
-- **System operacyjny:** Windows 11
+- **System operacyjny:** Windows 10
 - **Dane testowe:** generowane na potrzeby testów, niepochodzące z produkcji
 - **Wersja aplikacji:** aktualna wersja demo na dzień testów
 
@@ -75,18 +75,18 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 ### Tabela defektów i usprawnień
 
-| ID         | Opis defektu / usprawnienia                   | Moduł       | Priorytet | Sposób raportowania defektu                  | Zrzut ekranu |
-|------------|-----------------------------------------------|-------------|-----------|----------------------------------------------|--------------|
-| DEF-01     | Zmiany po edycji pracownika nie są widoczne   | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-01 |
-| DEF-02     | Brak walidacji formatu zdjęcia                | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-02 |
-| IMP-01     | Brak komunikatu po edycji danych pracownika   | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-01 |
-| IMP-02     | Brak możliwości masowego usuwania pracowników | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | —           |
-| DEF-03     | Brak opcji anulowania wniosku urlopowego      | Leave       | Wysoki    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-03 |
-| DEF-04     | Brak czytelnego komunikatu po złożeniu wniosku| Leave       | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-04 |
-| IMP-03     | Brak filtrów po statusie/typie urlopu/dacie   | Leave       | Niski     | Zgłoszenie jako usprawnienie                 | —           |
-| IMP-04     | Brak walidacji pól formularza urlopowego      | Leave       | Średni    | Zgłoszenie jako usprawnienie                 | Załącznik IMP-04 |
-| IMP-05     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-05 |
-| IMP-06     | Brak responsywności UI dla urządzeń mobilnych | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-06 |
+| ID         | Opis defektu / usprawnienia                   | Moduł       | Priorytet | Sposób raportowania defektu                  | Zrzut ekranu         |
+|------------|-----------------------------------------------|-------------|-----------|----------------------------------------------|----------------------|
+| DEF-01     | Zmiany po edycji pracownika nie są widoczne   | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-01     |
+| DEF-02     | Brak walidacji formatu zdjęcia                | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-02     |
+| IMP-01     | Brak komunikatu po edycji danych pracownika   | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-01     |
+| IMP-02     | Brak możliwości masowego usuwania pracowników | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
+| DEF-03     | Brak opcji anulowania wniosku urlopowego      | Leave       | Wysoki    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-03     |
+| DEF-04     | Brak czytelnego komunikatu po złożeniu wniosku| Leave       | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-04     |
+| IMP-03     | Brak filtrów po statusie/typie urlopu/dacie   | Leave       | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
+| IMP-04     | Brak walidacji pól formularza urlopowego      | Leave       | Średni    | Zgłoszenie jako usprawnienie                 | Załącznik IMP-04     |
+| IMP-05     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-05     |
+| IMP-06     | Brak responsywności UI dla urządzeń mobilnych | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-06     |
 
 ## 10. Traceability (Pokrycie wymagań)
 
@@ -113,5 +113,3 @@ Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktyw
 Raport przygotował: **Kasper Żdaniec**
 
 W razie dodatkowych pytań lub potrzeby rozszerzenia zakresu testów – pozostaję do dyspozycji.
-
----
