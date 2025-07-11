@@ -39,7 +39,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 | ID TC      | Warunek testowy (Test Condition)             | Kroki testowe                                                                 | Dane testowe                                                                                                 | Oczekiwany rezultat                    | Status      |
 |------------|----------------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------|-------------|
-| TC-PIM-01  | Dodanie nowego pracownika                    | 1. PIM → Add Employee, 2. Wprowadź dane, 3. Zapisz                           | Imię: Jan, Nazwisko: Testowy, ID: 12345, Email: jan.testowy@example.com, Zdjęcie: testowy.jpg                | Pracownik widoczny na liście           | Sukces      |
+| TC-PIM-01  | Dodanie nowego pracownika                    | 1. PIM → Add Employee, 2. Wprowadź dane, 3. Zapisz                           | Imię: Jan, Nazwisko: Testowy, ID: 12345, Zdjęcie: testowy.jpg                | Pracownik widoczny na liście           | Sukces      |
 | TC-PIM-02  | Wyszukiwanie pracownika                      | 1. Employee List, 2. Wyszukaj po imieniu/nazwisku                            | Imię: Jan, Nazwisko: Testowy                                           | Pracownik wyświetlony na liście        | Sukces      |
 | TC-PIM-03  | Edycja danych pracownika                     | 1. Wybierz pracownika, 2. Edytuj dane, 3. Zapisz                             | Zmiana nazwiska na: Testerski                                          | Dane zaktualizowane                    | Sukces      |
 | TC-PIM-04  | Usunięcie pracownika                         | 1. Wybierz pracownika, 2. Usuń, 3. Potwierdź                                 | Pracownik: Jan Testerski                                               | Pracownik usunięty z listy             | Sukces      |
@@ -50,7 +50,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 ## 7. Dane testowe (Test Data)
 
 **Pracownik:**  
-Imię: Jan, Nazwisko: Testowy, ID: 12345, Email: jan.testowy@example.com, Zdjęcie: testowy.jpg
+Imię: Jan, Nazwisko: Testowy, ID: 12345, Zdjęcie: testowy.jpg
 
 **Modyfikacja:**  
 Zmiana nazwiska na „Testerski”
