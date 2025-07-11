@@ -1,3 +1,4 @@
+
 # Raport z testów manualnych aplikacji OrangeHRM Demo  
 *Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB*
 
@@ -11,7 +12,8 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
   - Zarządzanie pracownikami (PIM – Personal Information Management)
   - Zarządzanie strukturą organizacyjną (Organization Structure)
   - Logowanie (Login)
-- **Zakres funkcjonalny:** podstawowe scenariusze CRUD, zarządzanie strukturą firmy (przeglądanie, dodawanie, edycja i usuwanie jednostek organizacyjnych), testy użyteczności formularza logowania
+  - Interfejs użytkownika (UI/UX)
+- **Zakres funkcjonalny:** podstawowe scenariusze CRUD, zarządzanie strukturą firmy (przeglądanie, dodawanie, edycja i usuwanie jednostek organizacyjnych), testy użyteczności formularza logowania oraz ergonomii interfejsu
 - **Zakres nieobjęty testami:** integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników
 
 ## 3. Środowisko testowe (Test Environment)
@@ -51,7 +53,8 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 | TC-ORG-01   | Dodanie jednostki organizacyjnej       | 1. Admin → Organization → Structure  2. Kliknij „Edit”  3. Dodaj nową jednostkę  4. Wprowadź nazwę  5. Zapisz  | Nazwa: Testowa Jednostka                          | Jednostka widoczna w strukturze    | Sukces    | Dodanie możliwe po wcześniejszym kliknięciu „Edit”                                              |
 | TC-ORG-02   | Edycja jednostki organizacyjnej        | 1. Admin → Organization → Structure  2. Kliknij „Edit”  3. Wybierz jednostkę  4. Edytuj nazwę  5. Zapisz       | Zmiana nazwy: z „Testowa Jednostka” na „Zmieniona Jednostka” | Zaktualizowana nazwa w strukturze  | Nieudany  | Komunikat „Error: Invalid Parameter” po próbie zapisania – zmiana nie jest możliwa.             |
 | TC-ORG-03   | Usunięcie jednostki organizacyjnej     | 1. Admin → Organization → Structure  2. Kliknij „Edit”  3. Wybierz jednostkę  4. Usuń  5. Potwierdź operację   | Jednostka: Testowa Jednostka                       | Jednostka usunięta ze struktury    | Sukces    | Usunięcie możliwe bezpośrednio po utworzeniu jednostki, niezależnie od błędu edycji             |
-| TC-LOGIN-01 | Brak możliwości podejrzenia hasła      | 1. Otwórz ekran logowania na urządzeniu mobilnym  2. Wpisz hasło w pole Password  3. Sprawdź, czy dostępna jest opcja „pokaż/ukryj hasło” (np. ikona oka) | Hasło: admin123                                    | Użytkownik może podejrzeć wpisywane hasło po kliknięciu odpowiedniej ikony/przycisku | Nieudany | Brak opcji podglądu hasła. Pole hasła zawsze zamaskowane. Testowane na Mi Note 10 Lite, Google Chrome v138 |
+| TC-LOGIN-01 | Brak możliwości podejrzenia hasła      | 1. Otwórz ekran logowania na urządzeniu mobilnym (Mi Note 10 Lite, Google Chrome v138)  2. Wpisz hasło w pole Password  3. Sprawdź, czy dostępna jest opcja „pokaż/ukryj hasło” (np. ikona oka) | Hasło: admin123                                    | Użytkownik może podejrzeć wpisywane hasło po kliknięciu odpowiedniej ikony/przycisku | Nieudany | Brak opcji podglądu hasła. Pole hasła zawsze zamaskowane. Testowane na Mi Note 10 Lite, Google Chrome v138 |
+| TC-UI-01    | Ocena czytelności rozmieszczenia przycisków akcji | 1. Zaloguj się jako Admin  2. Przeglądaj różne moduły  3. Zwróć uwagę na rozmieszczenie przycisków akcji | — | Przejrzyste i logiczne rozmieszczenie przycisków akcji | Nieudany | Przyciski są rozmieszczone w sposób nieintuicyjny. Dotyczy m.in. PIM i Organization Structure   |
 
 ## 7. Dane testowe (Test Data)
 
@@ -76,6 +79,7 @@ Hasło: admin123
 | 2025-07-10  | Kasper Żdaniec   | PIM          | Wszystkie     | OK        | Wszystkie przypadki PIM zakończone sukcesem                               |
 | 2025-07-11  | Kasper Żdaniec   | Organization | Wszystkie     | OK/Fail   | Dodanie i usunięcie jednostki OK, edycja zakończona błędem                |
 | 2025-07-11  | Kasper Żdaniec   | Login        | TC-LOGIN-01   | Fail      | Brak możliwości podejrzenia hasła                                          |
+| 2025-07-11  | Kasper Żdaniec   | UI/UX        | TC-UI-01      | Fail      | Przyciski akcji rozmieszczone nieintuicyjnie w kilku modułach             |
 
 ## 9. Wyniki testów, defekty i usprawnienia (Defects & Improvements)
 
@@ -84,8 +88,7 @@ Hasło: admin123
 | DEF-01     | Zmiany po edycji pracownika nie są widoczne bez przeładowania | PIM           | Średni    | 1. Zaloguj się jako Admin  2. Przejdź do PIM  3. Edytuj dane pracownika  4. Zapisz zmiany  5. Obserwuj dane na liście pracowników | Dane pracownika powinny być natychmiast widoczne po zapisaniu.            | Zmiany widoczne dopiero po ręcznym przeładowaniu strony (F5 lub Refresh).  | Chrome 138, Firefox 127, Windows 10, demo 2025-07-11 | DEF-01.png        |
 | DEF-03     | Błąd „Error: Invalid Parameter” przy edycji jednostki organizacyjnej | Organization   | Wysoki    | 1. Zaloguj się jako Admin  2. Przejdź do Admin → Organization → Structure  3. Kliknij „Edit”  4. Wybierz jednostkę  5. Zmień nazwę  6. Zapisz | Nazwa jednostki powinna zostać zaktualizowana i widoczna w strukturze.     | Komunikat „Error: Invalid Parameter”, nazwa nie zostaje zmieniona.          | Chrome 138, Firefox 127, Windows 10, demo 2025-07-11 | DEF-03.png        |
 | IMP-04     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX         | Niski     | 1. Zaloguj się jako Admin  2. Przeglądaj różne moduły  3. Zwróć uwagę na rozmieszczenie przycisków akcji                            | Przejrzyste i logiczne rozmieszczenie przycisków akcji.                    | Przyciski są rozmieszczone w sposób nieintuicyjny.                          | Chrome 138, Firefox 127, Windows 10, demo 2025-07-11 | IMP-04.png        |
-| IMP-05     | Brak responsywności UI dla urządzeń mobilnych | UI/UX         | Niski     | 1. Otwórz aplikację w trybie mobilnym (np. Chrome DevTools)  2. Sprawdź wygląd i funkcjonalność UI                                  | Interfejs powinien być responsywny i czytelny na urządzeniach mobilnych.    | UI nie dostosowuje się poprawnie do widoku mobilowego.                      | Chrome 138, Firefox 127, Windows 10, demo 2025-07-11 | IMP-05.png        |
-| IMP-06     | Brak możliwości podejrzenia hasła             | Login (Mobile) | Niski     | 1. Otwórz ekran logowania  2. Wpisz hasło  3. Poszukaj opcji „pokaż hasło”                                                        | Dostępny przycisk/ikona umożliwiająca podgląd hasła.                        | Brak takiej opcji – pole hasła zawsze zamaskowane.                          | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11             | IMP-06.png        |
+| IMP-06     | Brak możliwości podejrzenia hasła             | Login (Mobile) | Niski     | 1. Otwórz ekran logowania  2. Wpisz hasło  3. Poszukaj opcji „pokaż hasło”                                                        | Dostępny przycisk/ikona umożliwiająca podgląd hasła.                        | Brak takiej opcji – pole hasła zawsze zamaskowane.                          | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11             | IMP-06.jpg        |
 
 ## 10. Traceability (Pokrycie wymagań)
 
@@ -109,7 +112,7 @@ Po edycji danych pracownika zmiany nie są widoczne bez ręcznego przeładowania
 Raport został przygotowany zgodnie z terminologią i strukturą ISTQB, z zachowaniem traceability, logu testowego, opisu środowiska, danych testowych oraz formalnego raportowania defektów.
 
 **Załączniki:**  
-- Zrzuty ekranu dokumentujące defekty i usprawnienia  
+- Zrzuty ekranu dokumentujące defekty i usprawnienia (np. IMP-06.jpg)  
 - Plik z przypadkami testowymi w formacie Markdown
 
 Raport przygotował: **Kasper Żdaniec**
