@@ -1,5 +1,3 @@
-Oczywiście, poniżej zaktualizowana wersja raportu z poprawionym imieniem i nazwiskiem testera:
-
 # Raport z testów manualnych aplikacji OrangeHRM Demo  
 **Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB**
 
