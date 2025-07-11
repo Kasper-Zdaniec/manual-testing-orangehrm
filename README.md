@@ -1,5 +1,5 @@
 # Raport z testów manualnych aplikacji OrangeHRM Demo  
-## Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB
+Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB
 
 ### 1. Wprowadzenie
 
@@ -84,7 +84,7 @@ Integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników.
 | DEF-03    | Błąd „Error: Invalid Parameter” przy edycji jednostki organizacyjnej | Organization     | Wysoki    | 1. Zaloguj się jako Admin 2. Przejdź do Admin → Organization → Structure 3. Kliknij „Edit” 4. Wybierz jednostkę 5. Zmień nazwę 6. Zapisz | Nazwa jednostki powinna zostać zaktualizowana i widoczna w strukturze. | Komunikat „Error: Invalid Parameter”, nazwa nie zostaje zmieniona. | Chrome 138, Firefox 127, Windows 10, demo 2025-07-11 | DEF-03.png     |
 | IMP-04    | Mało czytelne rozmieszczenie przycisków akcji  | UI/UX (Mobile)   | Niski     | 1. Zaloguj się jako Admin na Mi Note 10 Lite, Google Chrome v138 2. Przeglądaj różne moduły 3. Zwróć uwagę na rozmieszczenie przycisków akcji 4. Udokumentuj obserwacje nagraniem ekranu | Przejrzyste i logiczne rozmieszczenie przycisków akcji. | Przyciski są rozmieszczone w sposób nieintuicyjny. | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | IMP-04.mp4     |
 | IMP-06    | Brak możliwości podejrzenia hasła              | Login (Mobile)   | Niski     | 1. Otwórz ekran logowania 2. Wpisz hasło 3. Poszukaj opcji „pokaż hasło”  | Dostępny przycisk/ikona umożliwiająca podgląd hasła. | Brak takiej opcji – pole hasła zawsze zamaskowane. | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | IMP-06.jpg     |
-| IMP-07    | Brak zwijania się przycisku/menu               | UI/UX (Mobile)   | Niski     | 1. Otwórz aplikację 2. Kliknij przycisk/menu, który powinien się zwijać   | Przycisk/menu zwija się poprawnie.                | Przycisk się nie zwija.                           | Mi Note 10 Lite, Google Chrome 138, Android 12, demo 2025-07-11 | IMP-07.mp4     |
+| IMP-07    | Brak zwijania się przycisku/menu               | UI/UX (Mobile)   | Niski     | 1. Otwórz aplikację 2. Kliknij przycisk/menu, który powinien się zwijać   | Przycisk/menu zwija się poprawnie.                | Przycisk się nie zwija.                           | IMP-07.mp4     |
 
 ### 10. Traceability (Pokrycie wymagań)
 
