@@ -2,7 +2,8 @@
 
 ## Wprowadzenie
 
-Raport został przygotowany zgodnie z dobrymi praktykami ISTQB oraz z wykorzystaniem narzędzi testerskich: Google Chrome, Firefox, Chrome DevTools, notatki w Markdown, zrzuty ekranu (dołączone w załączniku) oraz GitHub do kontroli wersji dokumentacji[1]. Celem testów była analiza jakości działania oraz użyteczności wybranych funkcjonalności aplikacji OrangeHRM Demo (https://opensource-demo.orangehrmlive.com/) w środowisku testowym, po zalogowaniu na konto Admin (login: Admin, hasło: admin123).
+Raport został przygotowany zgodnie z dobrymi praktykami ISTQB oraz z wykorzystaniem narzędzi testerskich: Google Chrome, Mozilla Firefox, Chrome DevTools, notatki w Markdown, zrzuty ekranu (dołączone w załączniku) oraz GitHub do kontroli wersji dokumentacji.  
+Celem testów była analiza jakości działania oraz użyteczności wybranych funkcjonalności aplikacji OrangeHRM Demo (https://opensource-demo.orangehrmlive.com/) w środowisku testowym, po zalogowaniu na konto Admin (login: Admin, hasło: admin123).
 
 Wybrane do analizy moduły:
 - **Zarządzanie pracownikami (PIM – Personal Information Management)**
@@ -15,7 +16,7 @@ Testy przeprowadzono metodycznie, z uwzględnieniem aspektów funkcjonalnych, UI
 - **Przeglądarki:** Google Chrome (v125+), Mozilla Firefox (v127+)
 - **Tryb mobilny:** Testy w trybie responsywnym Chrome DevTools
 - **Narzędzia deweloperskie:** Chrome DevTools (analiza sieci, inspekcja elementów)
-- **Dokumentacja:** Markdown, zrzuty ekranu (załącznik), kontrola wersji GitHub[1]
+- **Dokumentacja:** Markdown, zrzuty ekranu (załącznik), kontrola wersji (GitHub)
 - **Metodyka:** Testowanie eksploracyjne, testy pozytywne i negatywne, zgodność z ISTQB
 
 ## Przypadki testowe (Test Cases)
@@ -70,12 +71,10 @@ Testy przeprowadzono metodycznie, z uwzględnieniem aspektów funkcjonalnych, UI
 
 Aplikacja OrangeHRM Demo działa stabilnie i spełnia podstawowe wymagania biznesowe. Wykryte błędy nie są krytyczne, lecz wdrożenie zaproponowanych usprawnień znacząco podniesie jakość produktu oraz satysfakcję użytkowników. W przypadku ograniczonego czasu testowania, rekomenduję skupienie się na funkcjonalnościach o najwyższym wpływie na użytkownika (np. obsługa wniosków urlopowych, walidacja danych).
 
-Raport został przygotowany z dbałością o szczegóły, zgodnie z najlepszymi praktykami testerskimi i z wykorzystaniem narzędzi do dokumentacji oraz kontroli wersji[1]. Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktywny udział w rozwoju jakości oprogramowania w Państwa zespole QA.
+Raport został przygotowany z dbałością o szczegóły, zgodnie z najlepszymi praktykami testerskimi i z wykorzystaniem narzędzi do dokumentacji oraz kontroli wersji. Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktywny udział w rozwoju jakości oprogramowania w Państwa zespole QA.
 
 **Załączniki:**  
-- Zrzuty ekranu dokumentujące błędy i usprawnienia (dołączone do raportu)
+- Zrzuty ekranu dokumentujące błędy i usprawnienia  
 - Plik z przypadkami testowymi w formacie Markdown
 
-Jeśli pojawią się dodatkowe pytania lub potrzeba rozszerzenia zakresu testów, pozostaję do dyspozycji.
-
-[1] programming.development_tools
+W razie dodatkowych pytań lub potrzeby rozszerzenia zakresu testów – pozostaję do dyspozycji.
