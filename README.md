@@ -1,5 +1,5 @@
-#Raport z testów manualnych aplikacji OrangeHRM Demo  
-##Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB
+# Raport z testów manualnych aplikacji OrangeHRM Demo  
+## Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB
 
 ### 1. Wprowadzenie
 
