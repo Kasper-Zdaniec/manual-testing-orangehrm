@@ -42,7 +42,11 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 | TC-PIM-01  | Dodanie nowego pracownika                  | 1. PIM → Add Employee, 2. Wprowadź dane, 3. Zapisz                                                             | Imię: Jan, Nazwisko: Testowy, ID: 12345, Zdjęcie: testowy.png           | Pracownik widoczny na liście         | Sukces  |
 | TC-PIM-02  | Wyszukiwanie pracownika                    | 1. Employee List, 2. Wyszukaj po imieniu/nazwisku                                                              | Imię: Jan, Nazwisko: Testowy         | Pracownik wyświetlony na liście    | Sukces  |
 | TC-PIM-03  | Edycja danych pracownika                   | 1. Wybierz pracownika, 2. Edytuj dane, 3. Zapisz                                                               | Zmiana nazwiska na: Testerski        | Dane zaktualizowane                | Sukces  |
-| TC-PIM-04  | Usunięcie pracownika                       | 1. Przejdź do PIM → Employee List2. Wyszukaj pracownika (np. Jan Testerski)3. Zaznacz pracownika na liście4. Kliknij „Delete”5. Potwierdź operację w oknie dialogowym | Pracownik: Jan Testerski             | Pracownik usunięty z listy         | Sukces  |
+| TC-PIM-04  | Usunięcie pracownika                       | 1. Przejdź do PIM → Employee List  
+2. Wyszukaj pracownika (np. Jan Testerski)  
+3. Zaznacz pracownika na liście  
+4. Kliknij „Delete”  
+5. Potwierdź operację w oknie dialogowym | Pracownik: Jan Testerski             | Pracownik usunięty z listy         | Sukces  |
 | TC-LEAVE-01| Złożenie wniosku urlopowego                | 1. Leave → Apply, 2. Wypełnij formularz, 3. Złóż wniosek                                                       | Typ: Annual Leave, Data od: 2025-07-15, Data do: 2025-07-20 | Wniosek widoczny na liście           | Sukces  |
 | TC-LEAVE-02| Przeglądanie statusu wniosku               | 1. Leave → My Leave, 2. Sprawdź status                                                                          | Wniosek z TC-LEAVE-01                | Status zgodny z oczekiwaniem       | Sukces  |
 | TC-LEAVE-03| Anulowanie wniosku urlopowego              | 1. Leave → My Leave, 2. Spróbuj anulować wniosek                                                               | Wniosek z TC-LEAVE-01                | Brak opcji anulowania              | Brak opcji  |
