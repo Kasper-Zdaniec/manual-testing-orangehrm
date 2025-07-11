@@ -1,5 +1,5 @@
 # Raport z testów manualnych aplikacji OrangeHRM Demo  
-**Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB**
+*Przygotowany zgodnie z dobrymi praktykami i terminologią ISTQB*
 
 ## 1. Wprowadzenie
 
@@ -43,9 +43,9 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 | TC-PIM-02  | Wyszukiwanie pracownika          | 1. Employee List 2. Wyszukaj po imieniu/nazwisku                          | Imię: Jan, Nazwisko: Testowy                                             | Pracownik wyświetlony na liście    | Sukces  |                                                                                                 |
 | TC-PIM-03  | Edycja danych pracownika         | 1. Wybierz pracownika 2. Edytuj dane 3. Zapisz                            | Zmiana nazwiska na: Testerski                                            | Dane zaktualizowane                | Sukces  |                                                                                                 |
 | TC-PIM-04  | Usunięcie pracownika             | 1. Przejdź do PIM → Employee List 2. Wyszukaj pracownika (np. Jan Testerski) 3. Zaznacz pracownika na liście 4. Kliknij „Delete” 5. Potwierdź operację w oknie dialogowym | Pracownik: Jan Testerski                         | Pracownik usunięty z listy         | Sukces  |                                                                                                 |
-| TC-ORG-01  | Dodanie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Dodaj nową jednostkę 3. Wprowadź nazwę 4. Zapisz                        | Nazwa: Testowa Jednostka                           | Jednostka widoczna w strukturze    | Sukces  |                                                                                                 |
-| TC-ORG-02  | Edycja jednostki organizacyjnej  | 1. Wybierz jednostkę 2. Edytuj nazwę 3. Zapisz                            | Nowa nazwa: Zmieniona Jednostka                    | Zaktualizowana nazwa w strukturze  | Sukces  |                                                                                                 |
-| TC-ORG-03  | Usunięcie jednostki organizacyjnej | 1. Wybierz jednostkę 2. Usuń 3. Potwierdź operację                        | Jednostka: Zmieniona Jednostka                     | Jednostka usunięta ze struktury    | Sukces  |                                                                                                 |
+| TC-ORG-01  | Dodanie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Dodaj nową jednostkę 4. Wprowadź nazwę 5. Zapisz      | Nazwa: Testowa Jednostka                           | Jednostka widoczna w strukturze    | Sukces  | Dodanie możliwe po wcześniejszym kliknięciu „Edit”                                              |
+| TC-ORG-02  | Edycja jednostki organizacyjnej  | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Edytuj nazwę 5. Zapisz           | Nowa nazwa: Zmieniona Jednostka                    | Zaktualizowana nazwa w strukturze  | Sukces  | Edycja możliwa po wcześniejszym kliknięciu „Edit”                                               |
+| TC-ORG-03  | Usunięcie jednostki organizacyjnej | 1. Admin → Organization → Structure 2. Kliknij „Edit” 3. Wybierz jednostkę 4. Usuń 5. Potwierdź operację       | Jednostka: Zmieniona Jednostka                     | Jednostka usunięta ze struktury    | Sukces  | Usunięcie możliwe po wcześniejszym kliknięciu „Edit”                                            |
 
 ## 7. Dane testowe (Test Data)
 
@@ -64,9 +64,9 @@ Nowa nazwa: Zmieniona Jednostka
 | Data        | Tester           | Moduł         | Wersja przeglądarki | TC                | Wynik      | Komentarz                                                                 |
 |-------------|------------------|--------------|---------------------|-------------------|------------|---------------------------------------------------------------------------|
 | 2025-07-10  | Kasper Żdaniec   | PIM          | Chrome 125, FF 127  | Wszystkie         | OK         | Wszystkie przypadki PIM zakończone sukcesem                               |
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-01         | OK         | Dodanie jednostki organizacyjnej przebiegło prawidłowo                    |
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-02         | OK         | Edycja nazwy jednostki przebiegła prawidłowo                              |
-| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-03         | OK         | Usunięcie jednostki przebiegło prawidłowo                                 |
+| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-01         | OK         | Dodanie jednostki organizacyjnej po kliknięciu „Edit” przebiegło prawidłowo|
+| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-02         | OK         | Edycja nazwy jednostki po kliknięciu „Edit” przebiegła prawidłowo         |
+| 2025-07-11  | Kasper Żdaniec   | Organization | Chrome 125, FF 127  | TC-ORG-03         | OK         | Usunięcie jednostki po kliknięciu „Edit” przebiegło prawidłowo            |
 
 ## 9. Wyniki testów, defekty i usprawnienia (Defects & Improvements)
 
