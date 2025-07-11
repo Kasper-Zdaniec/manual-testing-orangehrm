@@ -1,120 +1,89 @@
 # Raport z testów manualnych aplikacji OrangeHRM Demo
 
-## Wstęp
+## 1. Wstęp
 
-Celem testów było sprawdzenie wybranych funkcjonalności demo systemu HR dostępnego pod adresem https://opensource-demo.orangehrmlive.com/. Testy przeprowadzono po zalogowaniu się na konto Admin (login: Admin, hasło: admin123). Wybrano dwie funkcjonalności:
+Testy zostały przeprowadzone na demo aplikacji HR dostępnej pod adresem: https://opensource-demo.orangehrmlive.com/. Użyto konta testowego:  
+Login: **Admin**  
+Hasło: **admin123**
 
-- Zarządzanie użytkownikami (Admin → User Management → Users)
-- Moduł urlopów (Leave)
+Wybrane funkcjonalności do testów:
+- Zarządzanie pracownikami (PIM – Personal Information Management)
+- Urlopy (Leave)
 
-Poniżej znajduje się szczegółowy opis przeprowadzonych testów, wykryte błędy oraz propozycje usprawnień.
+## 2. Przebieg testów
 
-## Funkcjonalność 1: Zarządzanie użytkownikami
+### 2.1. Funkcjonalność: Zarządzanie pracownikami (PIM)
 
-### Kroki testowe
+**Zakres testów:**
+- Dodawanie nowego pracownika
+- Wyszukiwanie pracownika
+- Edycja danych pracownika
 
-#### 1. Wyświetlanie listy użytkowników
-1. Zaloguj się do aplikacji:  
-   - Adres: https://opensource-demo.orangehrmlive.com/  
-   - Login: `Admin`  
-   - Hasło: `admin123`
-2. Po zalogowaniu kliknij w menu po lewej stronie na **Admin**.
-3. W podmenu wybierz **User Management** → **Users**.
-4. Sprawdź, czy lista użytkowników jest wyświetlana poprawnie.
+**Kroki testowe:**
+1. Przejście do modułu PIM.
+2. Wybranie opcji „Add Employee”.
+3. Wprowadzenie danych (imię, nazwisko, zdjęcie).
+4. Zapisanie nowego pracownika.
+5. Wyszukanie utworzonego pracownika po imieniu/nazwisku.
+6. Edycja danych pracownika.
+7. Zapisanie zmian.
 
-#### 2. Filtrowanie i wyszukiwanie użytkowników
-1. W sekcji **System Users** użyj pola **User Role** – wybierz dowolną rolę z listy (np. `ESS`).
-2. Kliknij **Search**.
-3. Sprawdź, czy lista użytkowników została przefiltrowana zgodnie z wybraną rolą.
-4. W polu **Username** wpisz fragment nazwy istniejącego użytkownika.
-5. Kliknij **Search**.
-6. Sprawdź, czy wyniki odpowiadają wpisanej frazie.
+**Wyniki:**
+- Dodanie i wyszukiwanie pracownika przebiegło pomyślnie.
+- Edycja danych działa poprawnie, zmiany są widoczne po zapisaniu.
 
-#### 3. Dodawanie nowego użytkownika
-1. Kliknij przycisk **Add** nad listą użytkowników.
-2. Wypełnij formularz:
-   - User Role: np. `ESS`
-   - Employee Name: wpisz np. `Linda Anderson` (wybierz z podpowiedzi)
-   - Status: `Enabled`
-   - Username: np. `testuser123`
-   - Password: np. `Test@1234`
-   - Confirm Password: `Test@1234`
-3. Kliknij **Save**.
-4. Sprawdź, czy pojawia się komunikat o sukcesie oraz czy nowy użytkownik pojawia się na liście.
+**Znalezione błędy:**
+- Brak walidacji formatu zdjęcia – możliwe jest przesłanie pliku o niepoprawnym formacie.
+- Po zapisaniu nowego pracownika nie pojawia się jednoznaczne potwierdzenie sukcesu (brak komunikatu).
 
-#### 4. Edycja istniejącego użytkownika
-1. Na liście użytkowników znajdź użytkownika (np. `testuser123`).
-2. Kliknij ikonę **Edit** (ołówek) przy tym użytkowniku.
-3. Zmień np. status na `Disabled`.
-4. Kliknij **Save**.
-5. Sprawdź, czy zmiana została zapisana.
+**Propozycje usprawnień:**
+- Dodanie komunikatu potwierdzającego dodanie/edycję pracownika.
+- Ulepszenie walidacji pól formularza (np. ograniczenie długości pól, walidacja zdjęcia).
+- Dodanie możliwości cofnięcia zmian przed zapisaniem.
 
-#### 5. Usuwanie użytkownika
-1. Na liście użytkowników zaznacz pole przy wybranym użytkowniku (np. `testuser123`).
-2. Kliknij przycisk **Delete** (ikona kosza).
-3. Potwierdź usunięcie w oknie dialogowym.
-4. Sprawdź, czy użytkownik został usunięty z listy.
+### 2.2. Funkcjonalność: Urlopy (Leave)
 
-## Funkcjonalność 2: Moduł urlopów (Leave)
+**Zakres testów:**
+- Składanie wniosku urlopowego
+- Przeglądanie historii urlopów
+- Akceptacja/odrzucanie wniosków
 
-### Kroki testowe
+**Kroki testowe:**
+1. Przejście do modułu „Leave”.
+2. Wybranie opcji „Apply”.
+3. Wypełnienie wniosku urlopowego (typ urlopu, daty, komentarz).
+4. Złożenie wniosku.
+5. Przejście do „My Leave” – sprawdzenie, czy wniosek się pojawił.
+6. Przejście do „Leave List” – sprawdzenie możliwości filtrowania i przeglądania wniosków.
 
-#### 1. Składanie wniosku urlopowego
-1. W menu po lewej stronie kliknij **Leave**.
-2. Wybierz **Apply**.
-3. W formularzu wybierz:
-   - Leave Type: np. `CAN - Bereavement`
-   - From Date: wybierz datę (np. dzisiejszą)
-   - To Date: wybierz tę samą datę
-   - Comment: wpisz np. `Testowy wniosek urlopowy`
-4. Kliknij **Apply**.
-5. Sprawdź, czy pojawia się komunikat o sukcesie.
+**Wyniki:**
+- Wniosek urlopowy został złożony i pojawił się na liście.
+- Filtrowanie działa poprawnie.
+- Statusy są czytelne.
 
-#### 2. Przeglądanie historii wniosków
-1. W menu **Leave** wybierz **My Leave**.
-2. Sprawdź, czy złożony wniosek jest widoczny na liście.
-3. Sprawdź szczegóły wniosku, klikając na niego.
+**Znalezione błędy:**
+- Brak walidacji dat – możliwe jest złożenie wniosku na daty wsteczne.
+- Po złożeniu wniosku nie pojawia się natychmiastowy komunikat potwierdzający.
 
-#### 3. Akceptacja/odrzucenie wniosku (rola Admin)
-1. W menu **Leave** wybierz **Leave List**.
-2. Ustaw zakres dat, aby widzieć złożony wcześniej wniosek.
-3. Kliknij **Search**.
-4. Na liście znajdź wniosek testowy.
-5. Kliknij na niego, wybierz **Approve** lub **Reject**.
-6. Sprawdź, czy status wniosku zmienił się odpowiednio.
+**Propozycje usprawnień:**
+- Dodanie walidacji dat (blokada wyboru dat przeszłych).
+- Dodanie powiadomienia o sukcesie po złożeniu wniosku.
+- Umożliwienie edycji lub anulowania wniosku przed rozpatrzeniem.
 
-#### 4. Filtrowanie wniosków
-1. W menu **Leave** → **Leave List** użyj filtrów:
-   - Status (np. `Pending Approval`)
-   - Leave Type
-   - Employee Name
-2. Kliknij **Search**.
-3. Sprawdź, czy wyniki odpowiadają zastosowanym filtrom.
+## 3. Podsumowanie
 
-## Wyniki testów i błędy
+Aplikacja OrangeHRM Demo oferuje szeroki zakres funkcjonalności HR. Podczas testów wybrane moduły działały stabilnie, jednak zauważono kilka błędów i obszarów do usprawnienia, szczególnie w zakresie walidacji formularzy oraz komunikacji z użytkownikiem (brak jasnych komunikatów potwierdzających operacje).
 
-### Zarządzanie użytkownikami
+## 4. Tabela błędów i usprawnień
 
-- **Dodawanie użytkownika:** Po dodaniu użytkownika nie zawsze pojawia się komunikat o sukcesie, czasem lista nie odświeża się automatycznie.
-- **Filtrowanie:** Działa poprawnie.
-- **Edycja:** Działa poprawnie.
-- **Usuwanie:** Działa poprawnie.
+| Funkcjonalność | Błąd/Usprawnienie                | Opis                                                                 |
+|----------------|----------------------------------|----------------------------------------------------------------------|
+| PIM            | Brak walidacji zdjęcia           | Możliwość przesłania pliku o nieprawidłowym formacie                 |
+| PIM            | Brak komunikatu sukcesu          | Po dodaniu/edycji brak potwierdzenia dla użytkownika                 |
+| Leave          | Brak walidacji dat               | Możliwość złożenia wniosku na daty wsteczne                          |
+| Leave          | Brak komunikatu po złożeniu      | Po złożeniu wniosku brak potwierdzenia na ekranie                    |
+| Leave          | Brak możliwości edycji wniosku   | Użytkownik nie może edytować/anulować wniosku przed rozpatrzeniem    |
 
-### Moduł urlopów
+## 5. Wnioski
 
-- **Składanie wniosku:** Działa poprawnie.
-- **Historia:** Działa poprawnie.
-- **Akceptacja/odrzucenie:** Status na liście nie zawsze aktualizuje się automatycznie po akcji.
-- **Filtrowanie:** Nie można filtrować po kilku statusach jednocześnie.
-
-## Propozycje usprawnień
-
-- Automatyczne odświeżanie list po dodaniu/edycji/usunięciu użytkownika lub zmianie statusu wniosku.
-- Wyraźniejsze komunikaty o sukcesie lub błędzie.
-- Możliwość filtrowania po wielu statusach jednocześnie w module urlopów.
-- Umożliwienie sortowania listy użytkowników po kolumnach.
-- Lepsze wyróżnienie statusów kolorami.
-
-## Podsumowanie
-
-Testy wykazały, że aplikacja jest intuicyjna i większość podstawowych funkcji działa poprawnie. Wskazane błędy dotyczą głównie braku automatycznego odświeżania danych oraz niejednoznacznych komunikatów po operacjach. Propozycje usprawnień dotyczą zarówno warstwy funkcjonalnej, jak i UI/UX, co może pozytywnie wpłynąć na komfort użytkowania aplikacji.
+Rekomenduję wdrożenie powyższych usprawnień, co poprawi użyteczność, bezpieczeństwo oraz komfort pracy użytkowników systemu.
