@@ -10,7 +10,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 - **Moduły objęte testami:**
   - Zarządzanie pracownikami (PIM – Personal Information Management)
   - Zarządzanie strukturą organizacyjną (Organization Structure)
-- **Zakres funkcjonalny:** podstawowe scenariusze CRUD, zarządzanie strukturą firmy (dodawanie, edycja, usuwanie i przeglądanie jednostek organizacyjnych)
+- **Zakres funkcjonalny:** podstawowe scenariusze CRUD, zarządzanie strukturą firmy (przeglądanie, dodawanie, edycja i usuwanie jednostek organizacyjnych)
 - **Zakres nieobjęty testami:** integracje zewnętrzne, raportowanie, uprawnienia innych ról użytkowników
 
 ## 3. Środowisko testowe (Test Environment)
@@ -19,7 +19,7 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 - **Tryb mobilny:** Chrome DevTools – tryb responsywny
 - **System operacyjny:** Windows 10
 - **Dane testowe:** generowane na potrzeby testów, niepochodzące z produkcji
-- **Wersja aplikacji:** aktualna wersja demo na dzień testów
+- **Wersja aplikacji:** aktualna wersja demo na dzień testów (11.07.2025)
 
 ## 4. Wykorzystane narzędzia
 
@@ -74,16 +74,16 @@ Nowa nazwa: Zmieniona Jednostka
 
 ### Tabela defektów i usprawnień
 
-| ID         | Opis defektu / usprawnienia                   | Moduł       | Priorytet | Sposób raportowania defektu                  | Zrzut ekranu         |
-|------------|-----------------------------------------------|-------------|-----------|----------------------------------------------|----------------------|
-| DEF-01     | Zmiany po edycji pracownika nie są widoczne   | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-01     |
-| DEF-02     | Brak walidacji formatu zdjęcia                | PIM         | Średni    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-02     |
-| IMP-01     | Brak komunikatu po edycji danych pracownika   | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-01     |
-| IMP-02     | Brak możliwości masowego usuwania pracowników | PIM         | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
-| DEF-03     | Błąd „Error: Invalid Parameter” przy edycji jednostki organizacyjnej | Organization | Wysoki    | Zgłoszenie przez system bugtrackingowy       | Załącznik DEF-03     |
-| IMP-03     | Brak możliwości dodania opisu jednostki       | Organization | Niski     | Zgłoszenie jako usprawnienie                 | —                   |
-| IMP-04     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-04     |
-| IMP-05     | Brak responsywności UI dla urządzeń mobilnych | UI/UX       | Niski     | Zgłoszenie jako usprawnienie                 | Załącznik IMP-05     |
+| ID         | Opis defektu / usprawnienia                   | Moduł       | Priorytet | Kroki do odtworzenia                                                                                                               | Oczekiwany rezultat                                                      | Rzeczywisty rezultat                                                     | Środowisko                                   | Załącznik         |
+|------------|-----------------------------------------------|-------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------|-------------------|
+| DEF-01     | Zmiany po edycji pracownika nie są widoczne   | PIM         | Średni    | 1. Zaloguj się jako Admin 2. Przejdź do PIM 3. Edytuj dane pracownika 4. Zapisz 5. Sprawdź widoczność zmian                        | Dane pracownika powinny być zaktualizowane i widoczne po zapisaniu        | Zmiany nie są widoczne po zapisaniu                                       | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | DEF-01.png        |
+| DEF-02     | Brak walidacji formatu zdjęcia                | PIM         | Średni    | 1. Zaloguj się jako Admin 2. Dodaj pracownika 3. Załaduj plik o niepoprawnym formacie 4. Zapisz                                    | System powinien odrzucić niepoprawny format pliku i wyświetlić komunikat  | System akceptuje każdy format pliku bez walidacji                          | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | DEF-02.png        |
+| IMP-01     | Brak komunikatu po edycji danych pracownika   | PIM         | Niski     | 1. Zaloguj się jako Admin 2. Przejdź do PIM 3. Edytuj dane pracownika 4. Zapisz                                                    | System powinien wyświetlić komunikat potwierdzający zapisanie zmian        | Brak komunikatu po zapisaniu zmian                                         | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | IMP-01.png        |
+| IMP-02     | Brak możliwości masowego usuwania pracowników | PIM         | Niski     | 1. Zaloguj się jako Admin 2. Przejdź do PIM 3. Spróbuj zaznaczyć wielu pracowników i usunąć ich jednocześnie                       | Możliwość zaznaczenia i usunięcia wielu pracowników naraz                  | Brak takiej możliwości                                                      | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | —                 |
+| DEF-03     | Błąd „Error: Invalid Parameter” przy edycji jednostki organizacyjnej | Organization | Wysoki    | 1. Zaloguj się jako Admin 2. Przejdź do Admin → Organization → Structure 3. Kliknij „Edit” 4. Wybierz jednostkę 5. Zmień nazwę 6. Zapisz | Nazwa jednostki powinna zostać zaktualizowana i widoczna w strukturze      | Komunikat „Error: Invalid Parameter”, nazwa nie zostaje zmieniona           | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | DEF-03.png        |
+| IMP-03     | Brak możliwości dodania opisu jednostki       | Organization | Niski     | 1. Zaloguj się jako Admin 2. Przejdź do Organization Structure 3. Spróbuj dodać opis do jednostki                                  | Możliwość dodania opisu do jednostki organizacyjnej                        | Brak pola lub opcji dodania opisu                                           | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | —                 |
+| IMP-04     | Mało czytelne rozmieszczenie przycisków akcji | UI/UX       | Niski     | 1. Zaloguj się jako Admin 2. Przeglądaj różne moduły 3. Zwróć uwagę na rozmieszczenie przycisków akcji                             | Przejrzyste i logiczne rozmieszczenie przycisków akcji                      | Przyciski są rozmieszczone w sposób nieintuicyjny                           | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | IMP-04.png        |
+| IMP-05     | Brak responsywności UI dla urządzeń mobilnych | UI/UX       | Niski     | 1. Otwórz aplikację w trybie mobilnym (np. Chrome DevTools) 2. Sprawdź wygląd i funkcjonalność UI                                  | Interfejs powinien być responsywny i czytelny na urządzeniach mobilnych     | UI nie dostosowuje się poprawnie do widoku mobilnego                        | Chrome 125, Firefox 127, Windows 10, demo 2025-07-11 | IMP-05.png        |
 
 ## 10. Traceability (Pokrycie wymagań)
 
@@ -101,7 +101,6 @@ Nowa nazwa: Zmieniona Jednostka
 
 Aplikacja OrangeHRM Demo działa stabilnie w zakresie zarządzania pracownikami oraz umożliwia przeglądanie i dodawanie jednostek organizacyjnych.  
 W module zarządzania strukturą organizacyjną występuje błąd uniemożliwiający edycję nazwy jednostki („Error: Invalid Parameter”), co uniemożliwia pełną weryfikację operacji CRUD.  
-Wdrożenie zaproponowanych usprawnień istotnie podniesie jakość produktu i satysfakcję użytkowników.  
 Raport został przygotowany zgodnie z terminologią i strukturą ISTQB, z zachowaniem traceability, logu testowego, opisu środowiska, danych testowych oraz formalnego raportowania defektów.
 
 **Załączniki:**  
