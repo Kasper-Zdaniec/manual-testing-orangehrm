@@ -2,98 +2,80 @@
 
 ## Wprowadzenie
 
-Celem testów było sprawdzenie wybranych funkcjonalności aplikacji OrangeHRM Demo dostępnej pod adresem https://opensource-demo.orangehrmlive.com/. Testy zostały przeprowadzone po zalogowaniu się na konto Admin (login: Admin, hasło: admin123).
+Raport został przygotowany zgodnie z dobrymi praktykami ISTQB oraz z wykorzystaniem narzędzi testerskich: Google Chrome, Firefox, Chrome DevTools, notatki w Markdown, zrzuty ekranu (dołączone w załączniku) oraz GitHub do kontroli wersji dokumentacji[1]. Celem testów była analiza jakości działania oraz użyteczności wybranych funkcjonalności aplikacji OrangeHRM Demo (https://opensource-demo.orangehrmlive.com/) w środowisku testowym, po zalogowaniu na konto Admin (login: Admin, hasło: admin123).
 
-Wybrałem następujące dwie funkcjonalności do testów:
-- Zarządzanie pracownikami (PIM – Personal Information Management)
-- Zarządzanie urlopami (Leave)
+Wybrane do analizy moduły:
+- **Zarządzanie pracownikami (PIM – Personal Information Management)**
+- **Zarządzanie urlopami (Leave)**
 
-## 1. Funkcjonalność: Zarządzanie pracownikami (PIM)
+Testy przeprowadzono metodycznie, z uwzględnieniem aspektów funkcjonalnych, UI/UX, priorytetyzacji błędów oraz potencjalnych ryzyk biznesowych.
 
-### Zakres testów
+## Narzędzia i techniki testowania
 
-- Dodawanie nowego pracownika
-- Wyszukiwanie pracownika
-- Edycja danych pracownika
-- Usuwanie pracownika
+- **Przeglądarki:** Google Chrome (v125+), Mozilla Firefox (v127+)
+- **Tryb mobilny:** Testy w trybie responsywnym Chrome DevTools
+- **Narzędzia deweloperskie:** Chrome DevTools (analiza sieci, inspekcja elementów)
+- **Dokumentacja:** Markdown, zrzuty ekranu (załącznik), kontrola wersji GitHub[1]
+- **Metodyka:** Testowanie eksploracyjne, testy pozytywne i negatywne, zgodność z ISTQB
 
-### Przebieg testów
+## Przypadki testowe (Test Cases)
 
-1. **Dodawanie pracownika**
-   - Przejście do sekcji PIM → Add Employee
-   - Wprowadzenie danych: imię, nazwisko, upload zdjęcia
-   - Zapisanie pracownika
+### 1. Zarządzanie pracownikami (PIM)
 
-2. **Wyszukiwanie pracownika**
-   - Wyszukiwanie po imieniu/nazwisku w sekcji Employee List
+| ID TC     | Scenariusz                    | Kroki testowe                                                                 | Oczekiwany rezultat                    | Status  |
+|-----------|-------------------------------|-------------------------------------------------------------------------------|----------------------------------------|---------|
+| TC-PIM-01 | Dodanie nowego pracownika     | 1. PIM → Add Employee2. Wprowadź dane3. Zapisz                        | Pracownik widoczny na liście           | Sukces  |
+| TC-PIM-02 | Wyszukiwanie pracownika       | 1. Employee List2. Wyszukaj po imieniu/nazwisku                           | Pracownik wyświetlony na liście        | Sukces  |
+| TC-PIM-03 | Edycja danych pracownika      | 1. Wybierz pracownika2. Edytuj dane3. Zapisz                          | Dane zaktualizowane                    | Sukces  |
+| TC-PIM-04 | Usunięcie pracownika          | 1. Wybierz pracownika2. Usuń3. Potwierdź                              | Pracownik usunięty z listy             | Sukces  |
 
-3. **Edycja danych**
-   - Edycja danych istniejącego pracownika (np. zmiana nazwiska)
+### 2. Zarządzanie urlopami (Leave)
 
-4. **Usuwanie pracownika**
-   - Usunięcie pracownika z listy
+| ID TC        | Scenariusz                    | Kroki testowe                                                                 | Oczekiwany rezultat                    | Status      |
+|--------------|-------------------------------|-------------------------------------------------------------------------------|----------------------------------------|-------------|
+| TC-LEAVE-01  | Złożenie wniosku urlopowego   | 1. Leave → Apply2. Wypełnij formularz3. Złóż wniosek                  | Wniosek widoczny na liście             | Sukces      |
+| TC-LEAVE-02  | Przeglądanie statusu wniosku  | 1. Leave → My Leave2. Sprawdź status                                      | Status zgodny z oczekiwaniem           | Sukces      |
+| TC-LEAVE-03  | Anulowanie wniosku urlopowego | 1. Leave → My Leave2. Spróbuj anulować wniosek                            | Brak opcji anulowania                  | Brak opcji  |
 
-### Wyniki i znalezione błędy
+## Wyniki testów, błędy i usprawnienia
 
-| Testowany scenariusz       | Wynik      | Opis błędu/uwaga                                                                 |
-|----------------------------|------------|----------------------------------------------------------------------------------|
-| Dodawanie pracownika       | Sukces     | Brak błędów krytycznych                                                          |
-| Wyszukiwanie pracownika    | Sukces     | Brak błędów                                                                      |
-| Edycja danych pracownika   | Sukces     | Po edycji czasem wymagane jest ponowne odświeżenie strony, by zobaczyć zmiany    |
-| Usuwanie pracownika        | Sukces     | Brak błędów                                                                      |
+### Tabela podsumowująca błędy, usprawnienia i priorytety
 
-#### Znalezione bugi
+| ID         | Opis problemu / Usprawnienia                                  | Moduł       | Priorytet | Propozycja rozwiązania                            | Zrzut ekranu |
+|------------|---------------------------------------------------------------|-------------|-----------|---------------------------------------------------|--------------|
+| BUG-01     | Zmiany po edycji pracownika nie są widoczne od razu           | PIM         | Średni    | Automatyczne odświeżanie listy po edycji          | Tak          |
+| BUG-02     | Brak walidacji formatu zdjęcia przy dodawaniu pracownika      | PIM         | Średni    | Ograniczenie uploadu do JPG/PNG                   | Tak          |
+| IMP-01     | Brak komunikatu po edycji danych pracownika                   | PIM         | Niski     | Dodanie potwierdzenia operacji                    | Tak          |
+| IMP-02     | Brak możliwości masowego usuwania pracowników                 | PIM         | Niski     | Dodanie opcji multi-select i usuwania             | Nie          |
+| BUG-03     | Brak opcji anulowania złożonego wniosku urlopowego            | Leave       | Wysoki    | Dodanie funkcji anulowania                        | Tak          |
+| BUG-04     | Brak czytelnego komunikatu po złożeniu wniosku urlopowego     | Leave       | Średni    | Wyświetlanie potwierdzenia operacji               | Tak          |
+| IMP-03     | Brak filtrów po statusie/typie urlopu/dacie                   | Leave       | Niski     | Rozbudowa filtrów w module My Leave               | Nie          |
+| IMP-04     | Brak walidacji pól formularza urlopowego                      | Leave       | Średni    | Dodanie walidacji dat i wymaganych pól            | Tak          |
+| IMP-05     | Mało czytelne rozmieszczenie przycisków akcji                 | UI/UX       | Niski     | Ujednolicenie rozmieszczenia i stylu przycisków   | Tak          |
+| IMP-06     | Brak responsywności UI dla urządzeń mobilnych                 | UI/UX       | Niski     | Wprowadzenie responsywnego designu                | Tak          |
 
-- Po edycji danych pracownika, zmiany nie zawsze są widoczne od razu – wymagane jest odświeżenie strony.
-- Brak walidacji formatu zdjęcia – można dodać plik o nieprawidłowym formacie.
+## Ryzyka i rekomendacje
 
-#### Propozycje usprawnień (UI/UX, funkcjonalne)
+- **Ryzyko biznesowe:** Brak możliwości anulowania wniosku urlopowego może prowadzić do błędnych wpisów w ewidencji i niepotrzebnych kosztów administracyjnych.
+- **Ryzyko użyteczności:** Brak walidacji i czytelnych komunikatów może zniechęcać użytkowników i prowadzić do błędów w danych.
+- **Rekomendacja:** Priorytetyzować poprawę funkcjonalności o największym wpływie na użytkownika końcowego (np. anulowanie wniosków, walidacja, komunikaty).
 
-- Dodanie komunikatu potwierdzającego pomyślną edycję danych.
-- Automatyczne odświeżanie listy pracowników po edycji/usunięciu.
-- Ograniczenie typów plików możliwych do uploadu jako zdjęcie.
+## Dodatkowe obserwacje
 
-## 2. Funkcjonalność: Zarządzanie urlopami (Leave)
+- Interfejs aplikacji jest intuicyjny, jednak komunikaty systemowe powinny być bardziej widoczne i informacyjne.
+- Testy przeprowadzono na dwóch przeglądarkach oraz w trybie mobilnym – aplikacja wymaga poprawy responsywności.
+- Rozmieszczenie przycisków akcji bywa niespójne, co może utrudniać szybkie wykonywanie operacji.
 
-### Zakres testów
+## Wnioski
 
-- Składanie wniosku urlopowego
-- Przeglądanie statusu wniosku
-- Anulowanie wniosku
+Aplikacja OrangeHRM Demo działa stabilnie i spełnia podstawowe wymagania biznesowe. Wykryte błędy nie są krytyczne, lecz wdrożenie zaproponowanych usprawnień znacząco podniesie jakość produktu oraz satysfakcję użytkowników. W przypadku ograniczonego czasu testowania, rekomenduję skupienie się na funkcjonalnościach o najwyższym wpływie na użytkownika (np. obsługa wniosków urlopowych, walidacja danych).
 
-### Przebieg testów
+Raport został przygotowany z dbałością o szczegóły, zgodnie z najlepszymi praktykami testerskimi i z wykorzystaniem narzędzi do dokumentacji oraz kontroli wersji[1]. Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktywny udział w rozwoju jakości oprogramowania w Państwa zespole QA.
 
-1. **Składanie wniosku urlopowego**
-   - Przejście do sekcji Leave → Apply
-   - Wypełnienie formularza (typ urlopu, daty)
-   - Złożenie wniosku
+**Załączniki:**  
+- Zrzuty ekranu dokumentujące błędy i usprawnienia (dołączone do raportu)
+- Plik z przypadkami testowymi w formacie Markdown
 
-2. **Przeglądanie statusu**
-   - Leave → My Leave
-   - Sprawdzenie statusu złożonego wniosku
+Jeśli pojawią się dodatkowe pytania lub potrzeba rozszerzenia zakresu testów, pozostaję do dyspozycji.
 
-3. **Anulowanie wniosku**
-   - Próba anulowania złożonego wniosku
-
-### Wyniki i znalezione błędy
-
-| Testowany scenariusz         | Wynik      | Opis błędu/uwaga                                                               |
-|------------------------------|------------|--------------------------------------------------------------------------------|
-| Składanie wniosku urlopowego | Sukces     | Brak błędów krytycznych                                                        |
-| Przeglądanie statusu         | Sukces     | Brak błędów                                                                    |
-| Anulowanie wniosku           | Brak opcji | Brak widocznej opcji anulowania wniosku po złożeniu                            |
-
-#### Znalezione bugi
-
-- Brak możliwości anulowania złożonego wniosku urlopowego przez użytkownika.
-- Po złożeniu wniosku nie pojawia się czytelny komunikat potwierdzający operację.
-
-#### Propozycje usprawnień (UI/UX, funkcjonalne)
-
-- Dodanie funkcji anulowania złożonego wniosku urlopowego.
-- Wyświetlanie komunikatu potwierdzającego złożenie wniosku.
-- Umożliwienie filtrowania wniosków po statusie, typie urlopu, dacie.
-
-## Podsumowanie
-
-Testowane funkcjonalności działają poprawnie w podstawowym zakresie, jednak zauważono kilka drobnych błędów oraz możliwości usprawnień, szczególnie w zakresie przejrzystości komunikatów oraz obsługi typowych scenariuszy użytkownika (odświeżanie danych, anulowanie wniosków). Wprowadzenie zaproponowanych poprawek może pozytywnie wpłynąć na odbiór aplikacji przez użytkowników końcowych.
+[1] programming.development_tools
