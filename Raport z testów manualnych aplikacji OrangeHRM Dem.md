@@ -39,8 +39,8 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 | ID TC     | Warunek testowy (Test Condition)             | Kroki testowe                                    | Dane testowe                                                                                                   | Oczekiwany rezultat                    | Status  |
 |-----------|----------------------------------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------|----------------------------------------|---------|
-| TC-PIM-01 | Dodanie nowego pracownika                    | 1. PIM → Add Employee2. Wprowadź dane3. Zapisz | Imię: JanNazwisko: TestowyID: 12345Email: jan.testowy@example.comZdjęcie: testowy.jpg         | Pracownik widoczny na liście           | Sukces  |
-| TC-PIM-02 | Wyszukiwanie pracownika                      | 1. Employee List2. Wyszukaj po imieniu/nazwisku | Imię: Jan, Nazwisko: Testowy                                              | Pracownik wyświetlony na liście        | Sukces  |
+| TC-PIM-01 | Dodanie nowego pracownika                    | 1. PIM → Add Employee2. Wprowadź dane3. Zapisz | Imię: JanNazwisko: TestowyID: 12345Email: jan.testowy@example.comZdjęcie: testowy.jpg | Pracownik widoczny na liście           | Sukces  |
+| TC-PIM-02 | Wyszukiwanie pracownika                      | 1. Employee List2. Wyszukaj po imieniu/nazwisku | Imię: JanNazwisko: Testowy                                              | Pracownik wyświetlony na liście        | Sukces  |
 | TC-PIM-03 | Edycja danych pracownika                     | 1. Wybierz pracownika2. Edytuj dane3. Zapisz | Zmiana nazwiska na: Testerski                                              | Dane zaktualizowane                    | Sukces  |
 | TC-PIM-04 | Usunięcie pracownika                         | 1. Wybierz pracownika2. Usuń3. Potwierdź  | Pracownik: Jan Testerski                                                   | Pracownik usunięty z listy             | Sukces  |
 | TC-LEAVE-01 | Złożenie wniosku urlopowego                | 1. Leave → Apply2. Wypełnij formularz3. Złóż wniosek | Typ: Annual LeaveData od: 2025-07-15Data do: 2025-07-20           | Wniosek widoczny na liście             | Sukces  |
@@ -49,9 +49,20 @@ Celem raportu jest przedstawienie wyników testów manualnych wybranych funkcjon
 
 ## 7. Dane testowe (Test Data)
 
-- Pracownik: Imię: Jan, Nazwisko: Testowy, ID: 12345, Email: jan.testowy@example.com, Zdjęcie: testowy.jpg
-- Modyfikacja: Zmiana nazwiska na „Testerski”
-- Wniosek urlopowy: typ „Annual Leave”, daty 2025-07-15 do 2025-07-20
+**Pracownik:**
+- Imię: Jan  
+- Nazwisko: Testowy  
+- ID: 12345  
+- Email: jan.testowy@example.com  
+- Zdjęcie: testowy.jpg
+
+**Modyfikacja:**  
+- Zmiana nazwiska na „Testerski”
+
+**Wniosek urlopowy:**  
+- Typ: Annual Leave  
+- Data od: 2025-07-15  
+- Data do: 2025-07-20
 
 ## 8. Log testowy (Test Log)
 
@@ -102,3 +113,5 @@ Jestem otwarty na feedback, dalszą optymalizację procesu testowania oraz aktyw
 Raport przygotował: **Kasper Żdaniec**
 
 W razie dodatkowych pytań lub potrzeby rozszerzenia zakresu testów – pozostaję do dyspozycji.
+
+---
